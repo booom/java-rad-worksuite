@@ -1,0 +1,42 @@
+{"rs":[["addChd",["z_w0",[
+['zul.wnd.Window','z_w7',{id:'win1',$$0onSwipe:true,$$0onAfterSize:true,$$0onSize:true,$$0onMaximize:true,$$0onMinimize:true,$$0onZIndex:true,$onClose:true,$$0onMove:true,width:'1000px',height:'650px',sclass:'mainwin',title:'岗位查看',maximizable:true,closable:true,contentStyle:'overflow-y:auto',mode:'modal'},[
+['zul.box.Vlayout','z_j7',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'padding_15'},[
+['zul.grid.Grid','z_k7',{$$0onRender:true,$$0onSwipe:true,$$0onTopPad:true,$$0onAfterSize:true,$$0onDataLoading:true,$$0onInnerWidth:true,$$0onPageSize:true,$$0onScrollPos:true,width:'100%',sclass:'domain_none ',_nativebar:true,_topPad:0,emptyMessage:null,_totalSize:3,_offset:0},[
+['zul.grid.Columns','z_l7',{$$0onSwipe:true,$$0onAfterSize:true},[
+['zul.grid.Column','z_m7',{$$0onSwipe:true,$$0onAfterSize:true,$$0onSort:true,$onSort:true,$$0onGroup:true,$$0onUngroup:true,width:'300px'},[]],
+['zul.grid.Column','z_n7',{$$0onSwipe:true,$$0onAfterSize:true,$$0onSort:true,$onSort:true,$$0onGroup:true,$$0onUngroup:true,width:'90px'},[]],
+['zul.grid.Column','z_o7',{$$0onSwipe:true,$$0onAfterSize:true,$$0onSort:true,$onSort:true,$$0onGroup:true,$$0onUngroup:true},[]],
+['zul.grid.Column','z_p7',{$$0onSwipe:true,$$0onAfterSize:true,$$0onSort:true,$onSort:true,$$0onGroup:true,$$0onUngroup:true,width:'135px'},[]]]],
+['zul.grid.Rows','z_e4',{$$0onSwipe:true,$$0onAfterSize:true,_offset:0,visibleItemCount:3},[
+['zul.grid.Row','z_d4',{$$0onSwipe:true,$$0onAfterSize:true,_index:0},[
+['zul.wgt.Cell','z_g4',{$$0onSwipe:true,$$0onAfterSize:true,rowspan:4,align:null,valign:null},[
+['zul.box.Vlayout','z_f4',{$$0onSwipe:true,$$0onAfterSize:true},[
+['zul.wgt.Label','z_i4',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'toptip_black blue',value:'交通模型研究'},[]],
+['zul.box.Hlayout','z_h4',{$$0onSwipe:true,$$0onAfterSize:true},[
+['zul.wgt.Label','z_i7',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_r',value:'招录\uff1a'},[]],
+['zul.wgt.Label','z_54',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'font_b blue',value:'1'},[]],
+['zul.wgt.Label','z_84',{$$0onSwipe:true,$$0onAfterSize:true,value:'\n\t\t\t\t\t\t\t\t名\n\t\t\t\t\t\t\t'},[]]]]]]]],
+['zul.wgt.Label','z_74',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_r',value:'所属区划\uff1a'},[]],
+['zul.wgt.Label','z_a4',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'font_b',value:'市属'},[]]]],
+['zul.grid.Row','z_94',{$$0onSwipe:true,$$0onAfterSize:true,_index:1},[
+['zul.wgt.Label','z_c4',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_r',value:'主管单位\uff1a'},[]],
+['zul.wgt.Label','z_b4',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'font_b',value:'上海市城乡建设和管理委员会'},[]]]],
+['zul.grid.Row','z_04',{$$0onSwipe:true,$$0onAfterSize:true,_index:2},[
+['zul.wgt.Label','z__4',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_r',value:'用人单位\uff1a'},[]],
+['zul.wgt.Label','z_24',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'font_b',value:'上海市城乡建设和交通发展研究院\uff08上海市数字化城市管理中心\uff09'},[]]]]]]]],
+['zul.wgt.Separator','z_14',{$$0onSwipe:true,$$0onAfterSize:true,height:'10px',orient:'horizontal'},[]],
+['zul.wgt.Div','z_44',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'border_line  '},[]],
+['zul.wgt.Separator','z_34',{$$0onSwipe:true,$$0onAfterSize:true,height:'10px',orient:'horizontal'},[]],
+['zul.grid.Grid','z_64',{$$0onRender:true,$$0onSwipe:true,$$0onTopPad:true,$$0onAfterSize:true,$$0onDataLoading:true,$$0onInnerWidth:true,$$0onPageSize:true,$$0onScrollPos:true,width:'100%',sclass:'domain_none  margin-bottom10',_nativebar:true,_topPad:0,emptyMessage:'对不起\uff0c未找到符合您要求的岗位\uff01',_totalSize:2,_offset:0},[
+['zul.grid.Columns','z_c7',{$$0onSwipe:true,$$0onAfterSize:true},[
+['zul.grid.Column','z_b7',{$$0onSwipe:true,$$0onAfterSize:true,$$0onSort:true,$onSort:true,$$0onGroup:true,$$0onUngroup:true,width:'80px'},[]],
+['zul.grid.Column','z_e7',{$$0onSwipe:true,$$0onAfterSize:true,$$0onSort:true,$onSort:true,$$0onGroup:true,$$0onUngroup:true},[]]]],
+['zul.grid.Rows','z_d7',{$$0onSwipe:true,$$0onAfterSize:true,_offset:0,visibleItemCount:2},[
+['zul.grid.Row','z_g7',{$$0onSwipe:true,$$0onAfterSize:true,_index:0},[
+['zul.wgt.Cell','z_f7',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_top',align:null,valign:null},[
+['zul.wgt.Label','z_47',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_r margintop1  font_b ',value:'岗位简介\uff1a'},[]]]],
+['zul.wgt.Html','z_h7',{$$0onSwipe:true,$$0onAfterSize:true,content:'从事交通模型研究等相关工作'},[]]]],
+['zul.grid.Row','z_67',{$$0onSwipe:true,$$0onAfterSize:true,_index:1},[
+['zul.wgt.Cell','z_57',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_top',align:null,valign:null},[
+['zul.wgt.Label','z_87',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_r margintop1  font_b ',value:'岗位要求\uff1a'},[]]]],
+['zul.wgt.Html','z_77',{$$0onSwipe:true,$$0onAfterSize:true,content:'招聘对象\uff1a不限<br/>最低工作年限\uff1a不限<br/>政治面貌\uff1a不限<br/>年龄上限\uff1a35<br/>学历要求\uff1a研究生<br/>学位要求\uff1a硕士及以上<br/>户籍要求\uff1a不限<br/>面试比例\uff1a1:5<br/>最低合格分数线\uff1a全市平均成绩<br/>笔试面试成绩比例\uff1a4:6<br/>专业要求\uff1a交通运输规划与管理及相关专业<br/>其它条件\uff1a具有一定的交通模型理论\u3001算法研究能力\u3001计算机编程能力\uff0c熟练掌握Emme/Transcad\u3001Transmodel等模型专业软件\uff1b具有较强的综合分析能力\u3001文字写作和口头表达能力\uff1b具有良好的沟通和组织协调能力\u3002非应届毕业生必须具备高级工程师任职资格\u3002<br/>备注\uff1a<br/>'},[]]]]]]]]]]]]]]]],"rid":6}

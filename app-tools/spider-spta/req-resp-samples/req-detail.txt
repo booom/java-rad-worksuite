@@ -1,0 +1,5 @@
+req detail:
+dtid:z__
+cmd_0:onClick
+uuid_0:z_x4
+data_0:{"pageX":283,"pageY":696,"which":1,"x":157,"y":8}

@@ -1,0 +1,15 @@
+{"rs":[["rm",["z_o8"]],["rm",["z_h8"]],["rm",["z_a8"]],["rm",["z_38"]],["rm",["z_x7"]],["rm",["z_q7"]],["rm",["z_j7"]],["rm",["z_e4"]],["rm",["z_54"]],["rm",["z_04"]],["rm",["z_c7"]],["rm",["z_e7"]],["addChd",["z_32",[
+['zul.grid.Row','z_f7',{$$0onSwipe:true,$$0onAfterSize:true,_loaded:true,_index:0},[
+['zul.box.Vlayout','z_g7',{$$0onSwipe:true,$$0onAfterSize:true},[
+['zul.wgt.A','z_h7',{$$0onBlur:true,$$0onSwipe:true,$onClick:true,$$0onAfterSize:true,$$0onFocus:true,label:'私房落政(310230053006001)'},[]]]],
+['zul.wgt.Label','z_47',{$$0onSwipe:true,$$0onAfterSize:true,value:'崇明县'},[]],
+['zul.wgt.Label','z_57',{$$0onSwipe:true,$$0onAfterSize:true,value:'崇明县住房保障和房屋管理局'},[]],
+['zul.wgt.Label','z_67',{$$0onSwipe:true,$$0onAfterSize:true,value:'崇明县房屋管理中心\uff08崇明县拆除工程施工管理中心\u3001崇明县房屋监察检查大队\u3001崇明县住宅修缮工程管理中心\uff09'},[]],
+['zul.wgt.Label','z_77',{$$0onSwipe:true,$$0onAfterSize:true,value:'2'},[]]]]],[
+['zul.grid.Row','z_87',{$$0onSwipe:true,$$0onAfterSize:true,_loaded:true,_index:1},[
+['zul.box.Vlayout','z_97',{$$0onSwipe:true,$$0onAfterSize:true},[
+['zul.wgt.A','z_a7',{$$0onBlur:true,$$0onSwipe:true,$onClick:true,$$0onAfterSize:true,$$0onFocus:true,label:'职工援助业务受理(310230054001001)'},[]]]],
+['zul.wgt.Label','z_y6',{$$0onSwipe:true,$$0onAfterSize:true,value:'崇明县'},[]],
+['zul.wgt.Label','z_z6',{$$0onSwipe:true,$$0onAfterSize:true,value:'上海市崇明县总工会'},[]],
+['zul.wgt.Label','z__7',{$$0onSwipe:true,$$0onAfterSize:true,value:'上海市崇明县职工援助服务中心'},[]],
+['zul.wgt.Label','z_07',{$$0onSwipe:true,$$0onAfterSize:true,value:'1'},[]]]]]]],["setAttr",[{$u:'z_42'},"activePage",200]],["setAttr",[{$u:'z_x1'},"_lastoffset",0]],["setAttr",[{$u:'z_x1'},"resetDataLoader",true]],["setAttr",[{$u:'z_x1'},"model",true]],["setAttr",[{$u:'z_32'},"visibleItemCount",22]]],"rid":3}

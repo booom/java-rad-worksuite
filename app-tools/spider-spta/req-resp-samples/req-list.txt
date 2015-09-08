@@ -1,0 +1,27 @@
+req list1:
+dtid:z_0
+cmd_0:onClick
+uuid_0:z_d0
+data_0:{"pageX":508,"pageY":422,"which":1,"x":81,"y":24}
+
+req list2:
+dtid:z_0
+cmd_0:onMove
+opt_0:i
+uuid_0:z_v0
+data_0:{"left":"153px","top":"300px"}
+cmd_1:onZIndex
+opt_1:i
+uuid_1:z_v0
+data_1:{"":1800}
+cmd_2:onPaging
+uuid_2:z_42
+data_2:{"":1}
+
+
+req list201:
+dtid:z_0
+cmd_0:onPaging
+uuid_0:z_42
+data_0:{"":200}
+
