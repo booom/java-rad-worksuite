@@ -54,7 +54,7 @@ public class SptaSpider {
             String pageContent = EntityUtils.toString(responseEntity);
             // do something useful with the response body
             // and ensure it is fully consumed
-            //ÏûºÄµôresponse
+            //æ¶ˆè€—æ‰response
             Pair<Long,String> pair = new Pair<Long, String>(sid,pageContent);
             EntityUtils.consume(responseEntity);
             return pair;
@@ -88,7 +88,7 @@ public class SptaSpider {
             String pageContent = EntityUtils.toString(responseEntity);
             // do something useful with the response body
             // and ensure it is fully consumed
-            //ÏûºÄµôresponse
+            //æ¶ˆè€—æ‰response
             EntityUtils.consume(responseEntity);
             return pageContent;
         } finally {
@@ -129,8 +129,8 @@ public class SptaSpider {
         // In order to ensure correct deallocation of system resources
         // the user MUST either fully consume the response content  or abort request
         // execution by calling CloseableHttpResponse#close().
-        //½¨Á¢µÄhttpÁ¬½Ó£¬ÈÔ¾É±»response1±£³Ö×Å£¬ÔÊĞíÎÒÃÇ´ÓÍøÂçsocketÖĞ»ñÈ¡·µ»ØµÄÊı¾İ
-        //ÎªÁËÊÍ·Å×ÊÔ´£¬ÎÒÃÇ±ØĞëÊÖ¶¯ÏûºÄµôresponse1»òÕßÈ¡ÏûÁ¬½Ó£¨Ê¹ÓÃCloseableHttpResponseÀàµÄclose·½·¨£©
+        //å»ºç«‹çš„httpè¿æ¥ï¼Œä»æ—§è¢«response1ä¿æŒç€ï¼Œå…è®¸æˆ‘ä»¬ä»ç½‘ç»œsocketä¸­è·å–è¿”å›çš„æ•°æ®
+        //ä¸ºäº†é‡Šæ”¾èµ„æºï¼Œæˆ‘ä»¬å¿…é¡»æ‰‹åŠ¨æ¶ˆè€—æ‰response1æˆ–è€…å–æ¶ˆè¿æ¥ï¼ˆä½¿ç”¨CloseableHttpResponseç±»çš„closeæ–¹æ³•ï¼‰
 
         try {
 //            prt(response.getStatusLine());

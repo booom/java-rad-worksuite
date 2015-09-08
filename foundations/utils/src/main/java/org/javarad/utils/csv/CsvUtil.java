@@ -83,7 +83,7 @@ public class CsvUtil {
         String cell = field==null?"":field.toString();
         cell = cell.replace(ConstVars.QUOTATION, ConstVars.QUOTATION_DOUBLE);
         if((field instanceof Number || NumericUtil.isNumericString(cell)) && cell.length()>MAX_DIGI_LENGTH && cell.indexOf('.')<0){
-            cell = ORGINAL_DIGIT_CHAR+cell;//±ÜÃâ¹ı³¤ÕûÊıÔÚexcelÖĞ±»¸ñÊ½»¯ÎªĞ¡Êı
+            cell = ORGINAL_DIGIT_CHAR+cell;//é¿å…è¿‡é•¿æ•´æ•°åœ¨excelä¸­è¢«æ ¼å¼åŒ–ä¸ºå°æ•°
         }
         cell = ConstVars.QUOTATION+cell+ConstVars.QUOTATION;
 //        if(cell.indexOf(COMMA) >=0 || cell.indexOf(QUOTATION) >= 0 || cell.indexOf(LF)>=0 || cell.indexOf(CR)>=0 || cell.indexOf(TAB) >=0){
@@ -96,14 +96,14 @@ public class CsvUtil {
         //exportCsv(String[] headers, Collection<List<?>> dataIterable, String filePath)
         String[] headers = new String[]{"header,1","header\",2"};
         List<? super Object> line = new ArrayList<>();
-        line.add("content," +ConstVars.WINDOWS_LINE_SPLITTER+"1Î´Öª×´Ì¬");
+        line.add("content," +ConstVars.WINDOWS_LINE_SPLITTER+"1æœªçŸ¥çŠ¶æ€");
         line.add("11115050");
 
         List<List<?>> lines = new ArrayList<>();
         lines.add(line);
 
         line = new ArrayList<>();
-        line.add("content," +ConstVars.WINDOWS_LINE_SPLITTER+"1Î´Öª×´Ì¬");
+        line.add("content," +ConstVars.WINDOWS_LINE_SPLITTER+"1æœªçŸ¥çŠ¶æ€");
         line.add("1111505011115050");
         lines.add(line);
 

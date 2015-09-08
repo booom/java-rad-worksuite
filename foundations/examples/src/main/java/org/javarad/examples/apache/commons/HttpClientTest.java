@@ -30,8 +30,8 @@ public class HttpClientTest {
         // In order to ensure correct deallocation of system resources
         // the user MUST either fully consume the response content  or abort request
         // execution by calling CloseableHttpResponse#close().
-        //½¨Á¢µÄhttpÁ¬½Ó£¬ÈÔ¾É±»response1±£³Ö×Å£¬ÔÊĞíÎÒÃÇ´ÓÍøÂçsocketÖĞ»ñÈ¡·µ»ØµÄÊı¾İ
-        //ÎªÁËÊÍ·Å×ÊÔ´£¬ÎÒÃÇ±ØĞëÊÖ¶¯ÏûºÄµôresponse1»òÕßÈ¡ÏûÁ¬½Ó£¨Ê¹ÓÃCloseableHttpResponseÀàµÄclose·½·¨£©
+        //å»ºç«‹çš„httpè¿æ¥ï¼Œä»æ—§è¢«response1ä¿æŒç€ï¼Œå…è®¸æˆ‘ä»¬ä»ç½‘ç»œsocketä¸­è·å–è¿”å›çš„æ•°æ®
+        //ä¸ºäº†é‡Šæ”¾èµ„æºï¼Œæˆ‘ä»¬å¿…é¡»æ‰‹åŠ¨æ¶ˆè€—æ‰response1æˆ–è€…å–æ¶ˆè¿æ¥ï¼ˆä½¿ç”¨CloseableHttpResponseç±»çš„closeæ–¹æ³•ï¼‰
 
         try {
             System.out.println(response1.getStatusLine());
@@ -46,7 +46,7 @@ public class HttpClientTest {
 
     private static void testHttpPost() throws IOException {
         HttpPost httpPost = new HttpPost("http://targethost/login");
-        //Æ´½Ó²ÎÊı
+        //æ‹¼æ¥å‚æ•°
         List <NameValuePair> nvps = new ArrayList <NameValuePair>();
         nvps.add(new BasicNameValuePair("username", "vip"));
         nvps.add(new BasicNameValuePair("password", "secret"));
@@ -60,7 +60,7 @@ public class HttpClientTest {
             HttpEntity entity2 = response2.getEntity();
             // do something useful with the response body
             // and ensure it is fully consumed
-            //ÏûºÄµôresponse
+            //æ¶ˆè€—æ‰response
             EntityUtils.consume(entity2);
         } finally {
             response2.close();
