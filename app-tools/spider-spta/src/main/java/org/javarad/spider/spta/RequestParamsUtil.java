@@ -39,7 +39,14 @@ public class RequestParamsUtil {
         httpGet.setHeaders(buildCookieInitHeaders());
 
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        CloseableHttpResponse response = httpclient.execute(httpGet);
+        CloseableHttpResponse response = null;
+        while (response ==null) {
+            try {
+                response = httpclient.execute(httpGet);
+            } catch (Exception ex) {
+                System.out.println("getInitSession exception " + ex.toString() + ",retry...");
+            }
+        }
 
         try {
 //            prt(response.getStatusLine());
@@ -71,7 +78,14 @@ public class RequestParamsUtil {
         httpPost.setEntity(requestEntity);
 
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        CloseableHttpResponse response = httpclient.execute(httpPost);
+        CloseableHttpResponse response = null;
+        while (response ==null) {
+            try {
+                response = httpclient.execute(httpPost);
+            } catch (Exception ex) {
+                System.out.println("getInitSid exception " + ex.toString() + ",retry...");
+            }
+        }
 
         try {
             long sid = Long.parseLong(response.getFirstHeader("ZK-SID").getValue());

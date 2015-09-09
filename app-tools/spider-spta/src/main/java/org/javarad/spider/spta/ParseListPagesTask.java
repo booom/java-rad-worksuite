@@ -44,8 +44,8 @@ public class ParseListPagesTask implements Callable<List<String>> {
         this.page = page;
     }
 
-    private static final Pattern RegexDetailUuid0 = Pattern.compile("zul.wgt.A','(.+)'");
-    private static final Pattern RegexActivePage = Pattern.compile("activePage\",(\\d+)");
+    private static final Pattern RegexDetailUuid0 = Pattern.compile("zul.wgt.A','(.+?)'");
+    private static final Pattern RegexActivePage = Pattern.compile("activePage\",(\\d+?)");
 
     @Override
     public List<String> call() throws Exception {
@@ -57,16 +57,17 @@ public class ParseListPagesTask implements Callable<List<String>> {
         String pageContent = requestListPage(sessionId, sid);
         Matcher matcherPageIndex = RegexActivePage.matcher(pageContent);
         isPageValid = false;
-        if(matcherPageIndex.find()){
-            int activePage = Integer.parseInt(matcherPageIndex.group(1));
-            if(activePage == page){
+//        if(matcherPageIndex.find())
+        {
+//            int activePage = Integer.parseInt(matcherPageIndex.group(1));
+//            if(activePage == page)
+            {
                 isPageValid = true;
 
                 detailPageQueryParams = new ArrayList<>();
                 Matcher matcherUuid0 = RegexDetailUuid0.matcher(pageContent);
                 while(matcherUuid0.find()){
                     detailPageQueryParams.add(matcherUuid0.group(1));
-                    System.out.println(matcherUuid0.group(1));
                 }
             }
         }
@@ -89,7 +90,14 @@ public class ParseListPagesTask implements Callable<List<String>> {
         httpPost.setEntity(requestEntity);
 
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        CloseableHttpResponse response = httpclient.execute(httpPost);
+        CloseableHttpResponse response = null;
+        while (response ==null) {
+            try {
+                response = httpclient.execute(httpPost);
+            } catch (Exception ex) {
+                System.out.println("requestListPage exception " + ex.toString() + ",retry...");
+            }
+        }
 
         try {
 //            System.out.println(response.getStatusLine());

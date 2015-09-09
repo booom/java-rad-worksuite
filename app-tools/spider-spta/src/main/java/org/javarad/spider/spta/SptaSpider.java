@@ -16,8 +16,13 @@ public class SptaSpider {
         ParseListPagesTask parseListPagesTask = new ParseListPagesTask(0);
         List<String> pageQueryParams = parseListPagesTask.call();
         while (parseListPagesTask.isPageValid()){
-            allPageQueryParams.addAll(pageQueryParams);
-            pageQueryParams = parseListPagesTask.call();
+            if(pageQueryParams!=null && !pageQueryParams.isEmpty() && !allPageQueryParams.contains(pageQueryParams.get(0))) {
+                allPageQueryParams.addAll(pageQueryParams);
+                parseListPagesTask.setPage(parseListPagesTask.getPage() + 1);
+                pageQueryParams = parseListPagesTask.call();
+            }else {
+                break;
+            }
         }
 
         Collection<List<?>> datas = new ArrayList<>();
