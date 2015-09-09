@@ -1,0 +1,42 @@
+{"rs":[["addChd",["z_w0",[
+['zul.wnd.Window','z_j4',{id:'win1',$$0onSwipe:true,$$0onAfterSize:true,$$0onSize:true,$$0onMaximize:true,$$0onMinimize:true,$$0onZIndex:true,$onClose:true,$$0onMove:true,width:'1000px',height:'650px',sclass:'mainwin',title:'岗位查看',maximizable:true,closable:true,contentStyle:'overflow-y:auto',mode:'modal'},[
+['zul.box.Vlayout','z_k4',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'padding_15'},[
+['zul.grid.Grid','z_l4',{$$0onRender:true,$$0onSwipe:true,$$0onTopPad:true,$$0onAfterSize:true,$$0onDataLoading:true,$$0onInnerWidth:true,$$0onPageSize:true,$$0onScrollPos:true,width:'100%',sclass:'domain_none ',_nativebar:true,_topPad:0,emptyMessage:null,_totalSize:3,_offset:0},[
+['zul.grid.Columns','z_m4',{$$0onSwipe:true,$$0onAfterSize:true},[
+['zul.grid.Column','z_n4',{$$0onSwipe:true,$$0onAfterSize:true,$$0onSort:true,$onSort:true,$$0onGroup:true,$$0onUngroup:true,width:'300px'},[]],
+['zul.grid.Column','z_o4',{$$0onSwipe:true,$$0onAfterSize:true,$$0onSort:true,$onSort:true,$$0onGroup:true,$$0onUngroup:true,width:'90px'},[]],
+['zul.grid.Column','z_p4',{$$0onSwipe:true,$$0onAfterSize:true,$$0onSort:true,$onSort:true,$$0onGroup:true,$$0onUngroup:true},[]],
+['zul.grid.Column','z_q4',{$$0onSwipe:true,$$0onAfterSize:true,$$0onSort:true,$onSort:true,$$0onGroup:true,$$0onUngroup:true,width:'135px'},[]]]],
+['zul.grid.Rows','z_r4',{$$0onSwipe:true,$$0onAfterSize:true,_offset:0,visibleItemCount:3},[
+['zul.grid.Row','z_s4',{$$0onSwipe:true,$$0onAfterSize:true,_index:0},[
+['zul.wgt.Cell','z_t4',{$$0onSwipe:true,$$0onAfterSize:true,rowspan:4,align:null,valign:null},[
+['zul.box.Vlayout','z_u4',{$$0onSwipe:true,$$0onAfterSize:true},[
+['zul.wgt.Label','z_v4',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'toptip_black blue',value:'培训教育'},[]],
+['zul.box.Hlayout','z_w4',{$$0onSwipe:true,$$0onAfterSize:true},[
+['zul.wgt.Label','z_x4',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_r',value:'招录\uff1a'},[]],
+['zul.wgt.Label','z_y4',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'font_b blue',value:'1'},[]],
+['zul.wgt.Label','z_z4',{$$0onSwipe:true,$$0onAfterSize:true,value:'\n\t\t\t\t\t\t\t\t名\n\t\t\t\t\t\t\t'},[]]]]]]]],
+['zul.wgt.Label','z__5',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_r',value:'所属区划\uff1a'},[]],
+['zul.wgt.Label','z_i5',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'font_b',value:'市属'},[]]]],
+['zul.grid.Row','z_k5',{$$0onSwipe:true,$$0onAfterSize:true,_index:1},[
+['zul.wgt.Label','z_04',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_r',value:'主管单位\uff1a'},[]],
+['zul.wgt.Label','z__4',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'font_b',value:'上海市安全生产监督管理局'},[]]]],
+['zul.grid.Row','z_24',{$$0onSwipe:true,$$0onAfterSize:true,_index:2},[
+['zul.wgt.Label','z_14',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_r',value:'用人单位\uff1a'},[]],
+['zul.wgt.Label','z_44',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'font_b',value:'上海市安全生产科学研究所'},[]]]]]]]],
+['zul.wgt.Separator','z_34',{$$0onSwipe:true,$$0onAfterSize:true,height:'10px',orient:'horizontal'},[]],
+['zul.wgt.Div','z_64',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'border_line  '},[]],
+['zul.wgt.Separator','z_54',{$$0onSwipe:true,$$0onAfterSize:true,height:'10px',orient:'horizontal'},[]],
+['zul.grid.Grid','z_84',{$$0onRender:true,$$0onSwipe:true,$$0onTopPad:true,$$0onAfterSize:true,$$0onDataLoading:true,$$0onInnerWidth:true,$$0onPageSize:true,$$0onScrollPos:true,width:'100%',sclass:'domain_none  margin-bottom10',_nativebar:true,_topPad:0,emptyMessage:'对不起\uff0c未找到符合您要求的岗位\uff01',_totalSize:2,_offset:0},[
+['zul.grid.Columns','z_74',{$$0onSwipe:true,$$0onAfterSize:true},[
+['zul.grid.Column','z_a4',{$$0onSwipe:true,$$0onAfterSize:true,$$0onSort:true,$onSort:true,$$0onGroup:true,$$0onUngroup:true,width:'80px'},[]],
+['zul.grid.Column','z_94',{$$0onSwipe:true,$$0onAfterSize:true,$$0onSort:true,$onSort:true,$$0onGroup:true,$$0onUngroup:true},[]]]],
+['zul.grid.Rows','z_c4',{$$0onSwipe:true,$$0onAfterSize:true,_offset:0,visibleItemCount:2},[
+['zul.grid.Row','z_b4',{$$0onSwipe:true,$$0onAfterSize:true,_index:0},[
+['zul.wgt.Cell','z_e4',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_top',align:null,valign:null},[
+['zul.wgt.Label','z_d4',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_r margintop1  font_b ',value:'岗位简介\uff1a'},[]]]],
+['zul.wgt.Html','z_g4',{$$0onSwipe:true,$$0onAfterSize:true,content:'负责安全生产师资力量的教育培训\uff0c协助教材的策划编辑工作\u3002'},[]]]],
+['zul.grid.Row','z_f4',{$$0onSwipe:true,$$0onAfterSize:true,_index:1},[
+['zul.wgt.Cell','z_i4',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_top',align:null,valign:null},[
+['zul.wgt.Label','z_h4',{$$0onSwipe:true,$$0onAfterSize:true,sclass:'align_r margintop1  font_b ',value:'岗位要求\uff1a'},[]]]],
+['zul.wgt.Html','z_i7',{$$0onSwipe:true,$$0onAfterSize:true,content:'招聘对象\uff1a非应届毕业生<br/>最低工作年限\uff1a三年<br/>政治面貌\uff1a不限<br/>年龄上限\uff1a45<br/>学历要求\uff1a本科及以上<br/>学位要求\uff1a学士及以上<br/>户籍要求\uff1a不限<br/>面试比例\uff1a1:5<br/>最低合格分数线\uff1a不限<br/>笔试面试成绩比例\uff1a4:6<br/>专业要求\uff1a安全工程优先<br/>其它条件\uff1a具有相关工作经历者优先.<br/>备注\uff1a本岗位工作资历要求\uff0c必须有劳动\uff08聘用\uff09合同佐证\uff0c并有相关社保缴费记录\u3002<br/>'},[]]]]]]]]]]]]]]]],"rid":2}
