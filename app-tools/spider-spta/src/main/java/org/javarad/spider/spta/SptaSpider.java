@@ -15,34 +15,43 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.Callable;
 
 /**
  * Introductions:
  */
-public class SptaSpider {
-    //sid:(jq.now() % 9999) + 1
-    public static void main(String[] args) throws IOException {
+public class SptaSpider implements Callable<String> {
+    @Override
+    public String call() throws Exception {
         String sessionId = getInitSession();
         prt(sessionId);
 
         Pair<Long,String> listResponse = requestList("z_d0", sessionId);
         prt(listResponse.toString());
 
-        prt(requestDetailFirst("z_d7", sessionId, listResponse.getKey()));
+        prt(requestDetail("z_d7", sessionId, listResponse.getKey()));
+
+        return null;
     }
 
-    private static Pair<Long,String> requestList(String uuid_0, String sessionId) throws IOException {
+    public static void main(String[] args) throws Exception {
+        SptaSpider sptaSpider = new SptaSpider();
+        sptaSpider.call();
+    }
+
+    private static void prt(Object obj){
+        System.out.println(obj);
+    }
+
+    private Pair<Long,String> requestList(String uuid_0, String sessionId) throws IOException {
         HttpPost httpPost = new HttpPost("http://sydw.spta.gov.cn/ksybaoming/zkau");
         httpPost.setHeaders(buildRequestHeaders(sessionId, -1));
 
-        List<NameValuePair> nvps = new ArrayList<NameValuePair>();
-        nvps.add(new BasicNameValuePair("dtid", "z__"));
-        nvps.add(new BasicNameValuePair("cmd_0", "onClick"));
-        nvps.add(new BasicNameValuePair("uuid_0", uuid_0));
-        nvps.add(new BasicNameValuePair("data_0", "{\"pageX\":525,\"pageY\":414,\"which\":1,\"x\":150,\"y\":16}"));
-        HttpEntity requestEntity = new UrlEncodedFormEntity(nvps);
+        HttpEntity requestEntity = buildHttpEntity(uuid_0);
         httpPost.setEntity(requestEntity);
 
         CloseableHttpClient httpclient = HttpClients.createDefault();
@@ -54,8 +63,8 @@ public class SptaSpider {
             String pageContent = EntityUtils.toString(responseEntity);
             // do something useful with the response body
             // and ensure it is fully consumed
-            //æ¶ˆè€—æŽ‰response
-            Pair<Long,String> pair = new Pair<Long, String>(sid,pageContent);
+            //ÏûºÄµôresponse
+            Pair<Long,String> pair = new Pair<>(sid,pageContent);
             EntityUtils.consume(responseEntity);
             return pair;
         } finally {
@@ -63,20 +72,29 @@ public class SptaSpider {
         }
     }
 
-    private static String requestDetailFirst(String uuid_0, String sessionId, long sid) throws IOException {
+    private HttpEntity buildHttpEntity(String uuid_0) throws UnsupportedEncodingException {
+        List<NameValuePair> nvps = new ArrayList<>();
+        nvps.add(new BasicNameValuePair("dtid", "z__"));
+        nvps.add(new BasicNameValuePair("cmd_0", "onClick"));
+
+        nvps.add(new BasicNameValuePair("uuid_0", uuid_0));
+
+        Random random = new Random();
+        int pageX = random.nextInt(100)+500;
+        int pageY = random.nextInt(100)+400;
+        int x = random.nextInt(100)+100;
+        int y= random.nextInt(20);
+        String data0Val = String.format("{\"pageX\":%d,\"pageY\":%d,\"which\":1,\"x\":%d,\"y\":%d}",pageX,pageY,x,y);
+        nvps.add(new BasicNameValuePair("data_0", data0Val));
+
+        return new UrlEncodedFormEntity(nvps);
+    }
+
+    private String requestDetail(String uuid_0, String sessionId, long sid) throws IOException {
         HttpPost httpPost = new HttpPost("http://sydw.spta.gov.cn/ksybaoming/zkau");
         httpPost.setHeaders(buildRequestHeaders(sessionId, sid));
 
-        List<NameValuePair> nvps = new ArrayList<NameValuePair>();
-//        nvps.add(new BasicNameValuePair("", ""));
-//        nvps.add(new BasicNameValuePair("", ""));
-//        nvps.add(new BasicNameValuePair("", ""));
-//        nvps.add(new BasicNameValuePair("", ""));
-        nvps.add(new BasicNameValuePair("dtid", "z__"));
-        nvps.add(new BasicNameValuePair("cmd_0", "onClick"));
-        nvps.add(new BasicNameValuePair("uuid_0", uuid_0));
-        nvps.add(new BasicNameValuePair("data_0", "{\"pageX\":151,\"pageY\":346,\"which\":1,\"x\":117,\"y\":6}"));
-        HttpEntity requestEntity = new UrlEncodedFormEntity(nvps);
+        HttpEntity requestEntity = buildHttpEntity(uuid_0);
         httpPost.setEntity(requestEntity);
 
         CloseableHttpClient httpclient = HttpClients.createDefault();
@@ -88,7 +106,7 @@ public class SptaSpider {
             String pageContent = EntityUtils.toString(responseEntity);
             // do something useful with the response body
             // and ensure it is fully consumed
-            //æ¶ˆè€—æŽ‰response
+            //ÏûºÄµôresponse
             EntityUtils.consume(responseEntity);
             return pageContent;
         } finally {
@@ -96,9 +114,9 @@ public class SptaSpider {
         }
     }
 
-    private static Header[] buildRequestHeaders(String sessionId, long sid){
+    private Header[] buildRequestHeaders(String sessionId, long sid){
         ArrayList<Header> headers = new ArrayList<Header>();
-        headers.add(new BasicHeader("Accept","*/*"));
+        headers.add(new BasicHeader("Accept", "*/*"));
         headers.add(new BasicHeader("Accept-Encoding","gzip, deflate"));
         headers.add(new BasicHeader("Accept-Language","zh-CN,zh;q=0.8"));
         headers.add(new BasicHeader("Connection","keep-alive"));
@@ -110,7 +128,7 @@ public class SptaSpider {
         headers.add(new BasicHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36"));
 
         if(sid <= 0)
-            sid = System.currentTimeMillis()%9999 + 1;
+            sid = System.currentTimeMillis()%9999 + 1;//sid:(jq.now() % 9999) + 1
         else
             sid ++;
         headers.add(new BasicHeader("ZK-SID",String.valueOf(sid)));
@@ -118,7 +136,7 @@ public class SptaSpider {
         return headers.toArray(new Header[0]);
     }
 
-    private static String getInitSession() throws IOException {
+    private String getInitSession() throws IOException {
         HttpGet httpGet = new HttpGet("http://sydw.spta.gov.cn/ksybaoming/website/online/list.zul?planId=b04072b6-5acf-4d5a-8ea5-0e772755d01a");
         httpGet.setHeaders(buildCookieInitHeaders());
 
@@ -129,8 +147,8 @@ public class SptaSpider {
         // In order to ensure correct deallocation of system resources
         // the user MUST either fully consume the response content  or abort request
         // execution by calling CloseableHttpResponse#close().
-        //å»ºç«‹çš„httpè¿žæŽ¥ï¼Œä»æ—§è¢«response1ä¿æŒç€ï¼Œå…è®¸æˆ‘ä»¬ä»Žç½‘ç»œsocketä¸­èŽ·å–è¿”å›žçš„æ•°æ®
-        //ä¸ºäº†é‡Šæ”¾èµ„æºï¼Œæˆ‘ä»¬å¿…é¡»æ‰‹åŠ¨æ¶ˆè€—æŽ‰response1æˆ–è€…å–æ¶ˆè¿žæŽ¥ï¼ˆä½¿ç”¨CloseableHttpResponseç±»çš„closeæ–¹æ³•ï¼‰
+        //½¨Á¢µÄhttpÁ¬½Ó£¬ÈÔ¾É±»response1±£³Ö×Å£¬ÔÊÐíÎÒÃÇ´ÓÍøÂçsocketÖÐ»ñÈ¡·µ»ØµÄÊý¾Ý
+        //ÎªÁËÊÍ·Å×ÊÔ´£¬ÎÒÃÇ±ØÐëÊÖ¶¯ÏûºÄµôresponse1»òÕßÈ¡ÏûÁ¬½Ó£¨Ê¹ÓÃCloseableHttpResponseÀàµÄclose·½·¨£©
 
         try {
 //            prt(response.getStatusLine());
@@ -145,11 +163,7 @@ public class SptaSpider {
         }
     }
 
-    private static void prt(Object obj){
-        System.out.println(obj);
-    }
-
-    private static Header[] buildCookieInitHeaders(){
+    private Header[] buildCookieInitHeaders(){
         ArrayList<Header> headers = new ArrayList<Header>();
         headers.add(new BasicHeader("Accept","text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"));
         headers.add(new BasicHeader("Accept-Encoding","gzip, deflate, sdch"));
@@ -160,5 +174,4 @@ public class SptaSpider {
 
         return headers.toArray(new Header[0]);
     }
-
 }

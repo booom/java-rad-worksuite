@@ -45,8 +45,8 @@ public class CsvUtil {
         return SingletonHolder.instance;
     }
     
-    public void exportCsv(String[] headers, Collection<List<?>> dataIterable, String filePath) {
-        try(FileOutputStream fileOutputStream = new FileOutputStream(filePath,false)) {
+    public void exportCsv(String[] headers, Collection<List<?>> dataIterable, String outputFilepath) {
+        try(FileOutputStream fileOutputStream = new FileOutputStream(outputFilepath,false)) {
             fileOutputStream.write(HEADER_BOM);
             try (BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(fileOutputStream, ExportCharset))) {
                 StringBuilder lineBuilder = new StringBuilder();
@@ -71,10 +71,10 @@ public class CsvUtil {
                     bufferedWriter.write(ConstVars.WINDOWS_LINE_SPLITTER);
                 }
             } catch (Exception ex) {
-                logger.error("write csv error:filepath={},{}", filePath, ex);
+                logger.error("write csv error:filepath={},{}", outputFilepath, ex);
             }
         }catch (Exception ex){
-            logger.error("create csv file error:filepath={},{}",filePath,ex);
+            logger.error("create csv file error:filepath={},{}",outputFilepath,ex);
         }
     }
 
