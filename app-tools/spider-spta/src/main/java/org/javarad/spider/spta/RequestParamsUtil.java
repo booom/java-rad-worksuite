@@ -72,7 +72,7 @@ public class RequestParamsUtil {
 
     public long getInitSid(String uuid_0, String sessionId) throws IOException {
         HttpPost httpPost = new HttpPost(SptaConstVars.UrlAction);
-        httpPost.setHeaders(buildRequestHeaders(sessionId, -1));
+        httpPost.setHeaders(buildRequestHeaders(sessionId, 0));
 
         HttpEntity requestEntity = buildHttpEntity(uuid_0);
         httpPost.setEntity(requestEntity);
@@ -100,6 +100,12 @@ public class RequestParamsUtil {
         }
     }
 
+
+    /**
+     * @param sessionId
+     * @param sid when sid<0 it'll be ignored; when sid=0 it'll be inited;when sid>0 it will ++
+     * @return
+     */
     public Header[] buildRequestHeaders(String sessionId, long sid){
         ArrayList<Header> headers = new ArrayList<Header>();
         headers.add(new BasicHeader("Accept", "*/*"));
@@ -113,10 +119,11 @@ public class RequestParamsUtil {
         headers.add(new BasicHeader("Referer","http://sydw.spta.gov.cn/ksybaoming/website/online/list.zul?planId=b04072b6-5acf-4d5a-8ea5-0e772755d01a"));
         headers.add(new BasicHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36"));
 
-        if(sid <= 0)
+        if(sid == 0)
             sid = System.currentTimeMillis()%9999 + 1;//sid:(jq.now() % 9999) + 1
-        else
+        else if(sid>0)
             sid ++;
+        //ignore sid<0
         headers.add(new BasicHeader("ZK-SID",String.valueOf(sid)));
 
         return headers.toArray(new Header[0]);

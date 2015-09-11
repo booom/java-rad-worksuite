@@ -102,6 +102,7 @@ public class ParseDetailPagesTask implements Callable<List<String>> {
     }
 
     private String requestDetail(String uuid_0, String sessionId, long sid) throws IOException {
+//        uuid_0 = "z_d7";
         System.out.println("request detail page:uuid_0=" + uuid_0);
         HttpPost httpPost = new HttpPost(SptaConstVars.UrlAction);
         httpPost.setHeaders(RequestParamsUtil.getInstance().buildRequestHeaders(sessionId, sid));

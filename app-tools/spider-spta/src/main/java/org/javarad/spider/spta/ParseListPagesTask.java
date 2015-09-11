@@ -47,10 +47,15 @@ public class ParseListPagesTask implements Callable<List<String>> {
     private static final Pattern RegexDetailUuid0 = Pattern.compile("zul.wgt.A','(.+?)'");
     private static final Pattern RegexActivePage = Pattern.compile("activePage\",(\\d+?)");
 
+    private String sessionId;
+    private long sid;
+
     @Override
     public List<String> call() throws Exception {
-        String sessionId = RequestParamsUtil.getInstance().getInitSession();
-        long sid = RequestParamsUtil.getInstance().getInitSid("z_d0", sessionId);
+        if(sessionId == null) {
+            sessionId = RequestParamsUtil.getInstance().getInitSession();
+            sid = RequestParamsUtil.getInstance().getInitSid("z_d0", sessionId);
+        }
 
         List<String> detailPageQueryParams = null;
 
@@ -81,10 +86,30 @@ public class ParseListPagesTask implements Callable<List<String>> {
 
         List<NameValuePair> nvps = new ArrayList<>();
         nvps.add(new BasicNameValuePair("dtid", SptaConstVars.Dtid));
-        nvps.add(new BasicNameValuePair("cmd_0", "onPaging"));
-        nvps.add(new BasicNameValuePair("uuid_0", "z_42"));
-        String data_0 = String.format("{\"\":%d}",page);
-        nvps.add(new BasicNameValuePair("data_0", data_0));
+        if(page>-1) {
+            nvps.add(new BasicNameValuePair("cmd_0", "onPaging"));
+            nvps.add(new BasicNameValuePair("uuid_0", "z_42"));
+            String data_0 = String.format("{\"\":%d}", page);
+            nvps.add(new BasicNameValuePair("data_0", data_0));
+        }else if(page==0) {
+            nvps.add(new BasicNameValuePair("cmd_0", "onClick"));
+            nvps.add(new BasicNameValuePair("uuid_0", "z_d0"));
+            nvps.add(new BasicNameValuePair("data_0", "{\"pageX\":506,\"pageY\":424,\"which\":1,\"x\":131,\"y\":26}"));
+        }else if(page==1){
+            nvps.add(new BasicNameValuePair("cmd_0", "onMove"));
+            nvps.add(new BasicNameValuePair("opt_0", "i"));
+            nvps.add(new BasicNameValuePair("uuid_0", "z_v0"));
+            nvps.add(new BasicNameValuePair("data_0", "{\"left\":\"0px\",\"top\":\"0px\"}"));
+
+            nvps.add(new BasicNameValuePair("cmd_1", "onZIndex"));
+            nvps.add(new BasicNameValuePair("opt_1", "i"));
+            nvps.add(new BasicNameValuePair("uuid_1", "z_v0"));
+            nvps.add(new BasicNameValuePair("data_1", "{\"\":1800}"));
+
+            nvps.add(new BasicNameValuePair("cmd_2", "onPaging"));
+            nvps.add(new BasicNameValuePair("uuid_2", "z_42"));
+            nvps.add(new BasicNameValuePair("data_2", "{\"\":1}"));
+        }
 
         HttpEntity requestEntity = new UrlEncodedFormEntity(nvps);
         httpPost.setEntity(requestEntity);
