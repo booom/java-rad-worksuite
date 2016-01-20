@@ -1,9 +1,9 @@
 package org.javarad.utils.csv;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.javarad.utils.ConstVars;
 import org.javarad.utils.numeric.NumericUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
@@ -19,7 +19,7 @@ import java.util.List;
  */
 
 public class CsvUtil {
-    private static final Logger logger = LoggerFactory.getLogger(CsvUtil.class);
+    private static final Logger logger = LogManager.getLogger(CsvUtil.class);
 
     private final Charset ExportCharset = StandardCharsets.UTF_16LE;//UTF_8,UTF_16LE
     private final byte[] HEADER_BOM;

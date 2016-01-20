@@ -22,7 +22,6 @@ public class SptaSpider {
                 pageQueryParams = parseListPagesTask.call();
             }else {
                 prt("list page index:"+parseListPagesTask.getPage());
-                prt("detail page query param:"+pageQueryParams.get(0));
                 prt("");
                 break;
             }

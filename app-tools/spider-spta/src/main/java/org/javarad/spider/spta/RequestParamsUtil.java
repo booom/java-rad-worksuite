@@ -62,7 +62,7 @@ public class RequestParamsUtil {
         ArrayList<Header> headers = new ArrayList<Header>();
         headers.add(new BasicHeader("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"));
         headers.add(new BasicHeader("Accept-Encoding","gzip, deflate, sdch"));
-        headers.add(new BasicHeader("Accept-Language","zh-CN,zh;q=0.8"));
+        headers.add(new BasicHeader("Accept-Language","zh-CN,zh;q=0.8,en;q=0.6"));
         headers.add(new BasicHeader("Connection","keep-alive"));
         headers.add(new BasicHeader("Host","sydw.spta.gov.cn"));
         headers.add(new BasicHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36"));
@@ -110,7 +110,7 @@ public class RequestParamsUtil {
         ArrayList<Header> headers = new ArrayList<Header>();
         headers.add(new BasicHeader("Accept", "*/*"));
         headers.add(new BasicHeader("Accept-Encoding","gzip, deflate"));
-        headers.add(new BasicHeader("Accept-Language","zh-CN,zh;q=0.8"));
+        headers.add(new BasicHeader("Accept-Language","zh-CN,zh;q=0.8,en;q=0.6"));
         headers.add(new BasicHeader("Connection","keep-alive"));
         headers.add(new BasicHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8"));
         headers.add(new BasicHeader("Cookie",sessionId));
@@ -130,6 +130,10 @@ public class RequestParamsUtil {
     }
 
     public HttpEntity buildHttpEntity(String uuid_0) throws UnsupportedEncodingException {
+//        dtid:z__
+//        cmd_0:onClick
+//        uuid_0:z_o5
+//        data_0:{"pageX":216,"pageY":278,"which":1,"x":87,"y":8}
         List<NameValuePair> nvps = new ArrayList<>();
         nvps.add(new BasicNameValuePair("dtid", SptaConstVars.Dtid));
         nvps.add(new BasicNameValuePair("cmd_0", "onClick"));
@@ -142,7 +146,8 @@ public class RequestParamsUtil {
         int x = random.nextInt(100)+100;
         int y = random.nextInt(20);
         String data0Val = String.format("{\"pageX\":%d,\"pageY\":%d,\"which\":1,\"x\":%d,\"y\":%d}",pageX,pageY,x,y);
-        nvps.add(new BasicNameValuePair("data_0", data0Val));
+//        nvps.add(new BasicNameValuePair("data_0", data0Val));
+        nvps.add(new BasicNameValuePair("data_0", "{\"pageX\":216,\"pageY\":278,\"which\":1,\"x\":87,\"y\":8}"));
 
         return new UrlEncodedFormEntity(nvps);
     }

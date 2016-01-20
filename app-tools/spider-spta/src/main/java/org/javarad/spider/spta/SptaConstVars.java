@@ -10,4 +10,7 @@ public class SptaConstVars {
     public static final String Dtid = "z__";
 
     public static final String OutputFilepathPrefix = "H:\\spta_";
+
+    public static final String ListFilepathPrefix = "H:\\list\\";
+    public static final String ListFilepathSuffix = ".txt";
 }
