@@ -5,14 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.javarad</groupId>
-    <artifactId>worksuite</artifactId>
+    <artifactId>javarad-worksuite</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
 
     <modules>
-        <module>foundations</module>
-        <module>app-tools</module>
-        <module>app-servers</module>
+        <module>javarad-foundations</module>
+        <module>javarad-apptools</module>
+        <module>javarad-appservers</module>
     </modules>
 
     <properties>
