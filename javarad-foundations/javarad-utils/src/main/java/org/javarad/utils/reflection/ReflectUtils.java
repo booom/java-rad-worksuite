@@ -38,14 +38,18 @@ public class ReflectUtils {
                 }
 
                 Method writeMethod = getWriteMethod(dest.getClass(), pd.getName());
-                if (readMethod == null || writeMethod==null || !readMethod.getReturnType().equals(writeMethod.getParameterTypes()[0])) {
-                    continue;
+                if(readMethod != null && writeMethod!=null) {
+                    Class readReturnType = readMethod.getReturnType();
+                    Class writeParamType = writeMethod.getParameterTypes()[0];
+                    if (readReturnType.equals(writeParamType) || (readReturnType.getSimpleName().substring(0,3).equalsIgnoreCase(writeParamType.getSimpleName().substring(0, 3)) && (readReturnType.isPrimitive() || writeParamType.isPrimitive())))//.substring(0,3) for int==Integer
+                    {
+                        Object val = readMethod.invoke(source);
+                        if (val != null || (!ignoreNull && !writeParamType.isPrimitive())) {
+                            writeMethod.invoke(dest, val);
+                        }
+                    }
                 }
 
-                Object val = readMethod.invoke(source);
-                if (val != null || !ignoreNull) {
-                    writeMethod.invoke(dest, val);
-                }
             }
         }
     }
